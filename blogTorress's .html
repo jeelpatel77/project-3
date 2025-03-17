@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #ecf0f1;
+        }
+        .top-bar {
+            background-color: #34495e;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar .left {
+            display: flex;
+            align-items: center;
+        }
+        .top-bar .left i {
+            margin-right: 10px;
+        }
+        .top-bar .right {
+            display: flex;
+            align-items: center;
+        }
+        .top-bar .right a {
+            margin-left: 20px;
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+        .header {
+            background-color: #2c3e50;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+        .header .logo img {
+            width: 100px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .header .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #34495e;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        .header .search-bar input {
+            border: none;
+            background: none;
+            color: #ecf0f1;
+            outline: none;
+            padding: 5px;
+        }
+        .header .search-bar i {
+            margin-left: 10px;
+        }
+        .header .cart {
+            display: flex;
+            align-items: center;
+        }
+        .header .cart i {
+            margin-right: 10px;
+        }
+        .header .cart span {
+            color: #e74c3c;
+        }
+        .nav-bar {
+            background-color: #34495e;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .nav-bar a {
+            margin: 0 20px;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-bar a.active {
+            color: #e74c3c;
+            border-bottom: 2px solid #e74c3c;
+        }
+        .shop {
+            background-image: url('img/1.webp');
+            background-size: cover;
+            padding: 50px 20px;
+           
+            color: black;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+        }
+        .breadcrumb {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .Blog {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .post {
+            width: 45%;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .post img {
+            width: 100%;
+            
+        }
+        .post-content {
+            padding: 20px;
+        }
+        .post-content h2 {
+            font-size: 24px;
+            margin: 0 0 10px;
+        }
+        .post-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .post-content .meta {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        .post-content .meta a {
+            color: #f0ad4e;
+            text-decoration: none;
+        }
+        .post-content .meta a:hover {
+            text-decoration: underline;
+        }
+        .read-more {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .read-more:hover {
+            background-color: #555;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .newsletter {
+            margin: 0;
+            
+            font-family: Arial, sans-serif;
+            background-color: #e94b5b;
+            text-align: center;
+        }
+        .newsletter-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .newsletter-subtitle {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .newsletter-input {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            outline: none;
+            width: 300px;
+        }
+        .newsletter-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #f8f8f8;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer .cont {
+            display: flex;
+            color: black;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer .cont div {
+            flex: 1;
+            margin: 10px;
+           justify-items: start;
+        }
+        .footer h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .footer ul li a {
+            text-decoration: none;
+            color: #070707;
+        }
+        .footer .cont-info {
+            text-align: left;
+        }
+        .footer .cont-info p {
+            margin: 5px 0;
+        }
+        .footer .cont-info i {
+            margin-right: 10px;
+        }
+        .footer .bottom-links {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .footer .bottom-links a {
+            text-decoration: none;
+            color: #0c0c0c;
+            margin: 0 5px;
+        }
+        .footer .payment-methods img {
+            margin: 14px 10px;
+            height: 30px;
+        }
+        
+        .footer .bottom-nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+     <div class="top-bar">
+        <div class="left">
+         <span>
+          Welcome to our shop
+         </span>
+         <i class="fas fa-phone">
+         </i>
+         <span>
+          (+123) 123 321 345
+         </span>
+        </div>
+        <div class="right">
+         <a href="#">
+          USD
+         </a>
+         <a href="#">
+          My Account
+         </a>
+         <a href="#">
+          Wishlist
+         </a>
+         <a href="#">
+          Sign In
+         </a>
+        </div>
+       </div>
+       <div class="header">
+        <div class="logo">
+         <img alt="" height="40" src="img/torress.webp" width="40">
+        
+        </div>
+        <div class="search-bar">
+         <input placeholder="Search here" type="text"/>
+         <i class="fas fa-search">
+         </i>
+        </div>
+        <div class="cart">
+         <i class="fas fa-shopping-bag">
+         </i>
+         <span>
+          02
+         </span>
+         <span>
+          $157.00
+         </span>
+        </div>
+       </div>
+       <div class="nav-bar">
+        <a class="active" href="#">
+         Home
+        </a>
+        <a href="shopeTorress.html">
+         Shop
+        </a>
+        <a href="#">
+         Blog
+        </a>
+        <a href="pageTorress.html">
+         Pages
+        </a>
+        <a href="#">
+         Contact
+        </a>
+       </div>
+       <div class="shop">
+        <h1>SHOP GRID VIEW</h1>
+        <div class="breadcrumb">
+            <a href="#">Home</a> &gt; <a href="#">Shop Three Column</a>
+        </div>
+    </div>
+    <div class="Blog">
+        <div class="post">
+         <img alt="" height="400" src="img/123.webp" width="600"/>
+         <div class="post-content">
+          <h2>
+           Blog Image Post
+          </h2>
+          <div class="meta">
+           By
+           <a href="#">
+            admin
+           </a>
+           / Date
+           <a href="#">
+            June 28, 2023
+           </a>
+          </div>
+          <p>
+           Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.
+          </p>
+          <a class="read-more" href="#">
+           Read More
+          </a>
+         </div>
+        </div>
+        <div class="post">
+         <img alt="" height="400" src="img/124.webp" width="600"/>
+         <div class="post-content">
+          <h2>
+           Quisque egestas
+          </h2>
+          <div class="meta">
+           By
+           <a href="#">
+            admin
+           </a>
+           / Date
+           <a href="#">
+            June 25, 2023
+           </a>
+          </div>
+          <p>
+           Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.
+          </p>
+          <a class="read-more" href="#">
+           Read More
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="Blog">
+        <div class="post">
+         <img alt="" height="400" src="img/125.webp" width="600"/>
+         <div class="post-content">
+          <h2>
+           Blog Image Post
+          </h2>
+          <div class="meta">
+           By
+           <a href="#">
+            admin
+           </a>
+           / Date
+           <a href="#">
+            June 28, 2023
+           </a>
+          </div>
+          <p>
+           Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.
+          </p>
+          <a class="read-more" href="#">
+           Read More
+          </a>
+         </div>
+        </div>
+        <div class="post">
+         <img alt="" height="400" src="img/126.webp" width="600"/>
+         <div class="post-content">
+          <h2>
+           Quisque egestas
+          </h2>
+          <div class="meta">
+           By
+           <a href="#">
+            admin
+           </a>
+           / Date
+           <a href="#">
+            June 25, 2023
+           </a>
+          </div>
+          <p>
+           Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.
+          </p>
+          <a class="read-more" href="#">
+           Read More
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="Blog">
+        <div class="post">
+         <img alt="" height="400" src="img/124.webp" width="600"/>
+         <div class="post-content">
+          <h2>
+           Blog Image Post
+          </h2>
+          <div class="meta">
+           By
+           <a href="#">
+            admin
+           </a>
+           / Date
+           <a href="#">
+            June 28, 2023
+           </a>
+          </div>
+          <p>
+           Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.
+          </p>
+          <a class="read-more" href="#">
+           Read More
+          </a>
+         </div>
+        </div>
+        <div class="post">
+         <img alt="" height="400" src="img/123.webp" width="600"/>
+         <div class="post-content">
+          <h2>
+           Quisque egestas
+          </h2>
+          <div class="meta">
+           By
+           <a href="#">
+            admin
+           </a>
+           / Date
+           <a href="#">
+            June 25, 2023
+           </a>
+          </div>
+          <p>
+           Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio.
+          </p>
+          <a class="read-more" href="#">
+           Read More
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="logo-container">
+        <div class="logo">
+         <img alt="" height="150" src="img/118.webp" width="150"/>
+        </div>
+        <div class="logo">
+         <img alt="" height="150" src="img/119.webp" width="150"/>
+        </div>
+        <div class="logo">
+         <img alt="" height="150" src="img/120.webp" width="150"/>
+        </div>
+        <div class="logo">
+         <img alt="" height="150" src="img/121.webp" width="150"/>
+        </div>
+        <div class="logo">
+         <img alt="" height="150" src="img/122.webp" width="150"/>
+        </div>
+       </div>
+       </div>
+       <div class="newsletter">
+        <div class="newsletter-title">SIGN UP FOR NEWSLETTERS</div>
+        <div class="newsletter-subtitle">Be The First To Know. Sign Up For Newsletter Today</div>
+        <div class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Enter email address">
+            <button class="newsletter-button">SUBSCRIBE</button>
+        </div>
+        <div class="footer">
+            <div class="cont">
+             <div>
+              <h3>
+               Products
+              </h3>
+              <ul>
+               <li>
+                <a href="#">
+                 Prices Drop
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 New Products
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 Best Sales
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 Login
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 My Account
+                </a>
+               </li>
+              </ul>
+             </div>
+             <div>
+              <h3>
+               Our company
+              </h3>
+              <ul>
+               <li>
+                <a href="#">
+                 Delivery
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 Legal Notice
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 Terms Of Use
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 About Us
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 Contact Us
+                </a>
+               </li>
+              </ul>
+             </div>
+             <div>
+              <h3>
+               Your account
+              </h3>
+              <ul>
+               <li>
+                <a href="#">
+                 Addresses
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 Orders
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 Checkout
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 Credit Slips
+                </a>
+               </li>
+               <li>
+                <a href="#">
+                 Personal Info
+                </a>
+               </li>
+              </ul>
+             </div>
+             <div class="contact-info">
+              <h3>
+               Contact Us
+              </h3>
+              <p>
+               <i class="fas fa-map-marker-alt">
+               </i>
+               169-C, Technohub, Dubai Silicon Oasis.
+              </p>
+              <p>
+               <i class="fas fa-envelope">
+               </i>
+               Email: info@yourdomain.com
+              </p>
+              <p>
+               <i class="fas fa-phone">
+               </i>
+               Phone: (+123) 123 321 345
+              </p>
+              <p>
+               <i class="fas fa-calendar-alt">
+               </i>
+               Mon-Sat 9:00pm – 5:00pm. Sun: Weekend
+              </p>
+             </div>
+            </div>
+            <div class="bottom-links">
+             <a href="#">
+              Online Shopping
+             </a>
+             |
+             <a href="#">
+              Promotions
+             </a>
+             |
+             <a href="#">
+              My Orders
+             </a>
+             |
+             <a href="#">
+              Help
+             </a>
+             |
+             <a href="#">
+              Customer Service
+             </a>
+             |
+             <a href="#">
+              Support
+             </a>
+             |
+             <a href="#">
+              Most Populars
+             </a>
+             |
+             <a href="#">
+              New Arrivals
+             </a>
+             |
+             <a href="#">
+              Special Products
+             </a>
+             |
+             <a href="#">
+              Manufacturers
+             </a>
+             |
+             <a href="#">
+              Our Stores
+             </a>
+             |
+             <a href="#">
+              Shipping
+             </a>
+             |
+             <a href="#">
+              Payments
+             </a>
+             |
+             <a href="#">
+              Warantee
+             </a>
+             |
+             <a href="#">
+              Refunds
+             </a>
+             |
+             <a href="#">
+              Checkout
+             </a>
+             |
+             <a href="#">
+              Discount
+             </a>
+             |
+             <a href="#">
+              Terms &amp; Conditions
+             </a>
+             |
+             <a href="#">
+              Policy
+             </a>
+             |
+             <a href="#">
+              Shipping
+             </a>
+             |
+             <a href="#">
+              Payments
+             </a>
+             |
+             <a href="#">
+              Returns
+             </a>
+             |
+             <a href="#">
+              Refunds
+             </a>
+            </div>
+            <div class="payment-methods">
+                <img alt="" height="30" src="img/108.webp" width="30%"/>
+               </div>
+            <div class="copyright">
+             Copyright © 2019 Torress. All rights reserved.
+            </div>
+            <div class="bottom-nav">
+             <a href="#">
+              HOME
+             </a>
+             <a href="#">
+              ABOUT
+             </a>
+             <a href="#">
+              SHOP
+             </a>
+             <a href="#">
+              CONTACT
+             </a>
+            </div>
+           </div>
+</body>
+</html>
